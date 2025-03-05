@@ -68,7 +68,7 @@ export default function NavBar() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [links]);
 
   useEffect(() => {
     const activeElement = document.getElementById(`nav-${activeSection}`);
