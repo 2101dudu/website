@@ -20,7 +20,7 @@ export default [
         input: "cat ~/experience.txt",
         return:  (
             <>
-                intern @ Eurotux S.A. (summer '24) — worked on <span className="text-yellow-400">cybersecurity </span> 
+                intern @ Eurotux S.A. (summer &apos;24) — worked on <span className="text-yellow-400">cybersecurity </span> 
                 and <span className="text-yellow-400">penetration testing</span>
             </>
         )
@@ -29,7 +29,7 @@ export default [
         input: "wget --output-document=resume.pdf https://eduardofaria.pt/resume.pdf",
         return: (
             <>
-                <a href="https://eduardofaria.pt/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">'resume.pdf'</a> saved
+                <a href="https://eduardofaria.pt/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">&apos;resume.pdf&apos;</a> saved
             </>
         )
     },

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 
 export default function NavBar() {
   const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
@@ -9,11 +9,11 @@ export default function NavBar() {
   const containerRef = useRef(null);
   const resetTimeoutRef = useRef(null);
 
-  const links = [
+  const links = useMemo(() => [
     { label: "/home", id: "home" },
     { label: "/about", id: "about" },
     { label: "/projects", id: "projects" },
-  ];
+  ], []);
 
   const updateUnderline = (element) => {
     if (!containerRef.current || !element) return;
