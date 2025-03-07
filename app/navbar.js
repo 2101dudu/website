@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 
 export default function NavBar() {
   const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
@@ -9,11 +9,11 @@ export default function NavBar() {
   const containerRef = useRef(null);
   const resetTimeoutRef = useRef(null);
 
-  const links = [
+  const links = useMemo(() => [
     { label: "/home", id: "home" },
     { label: "/about", id: "about" },
     { label: "/projects", id: "projects" },
-  ];
+  ], []);
 
   const updateUnderline = (element) => {
     if (!containerRef.current || !element) return;
@@ -76,27 +76,31 @@ export default function NavBar() {
   }, [activeSection]);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 max-w-screen-xl mx-auto px-4 flex flex-row justify-between m-10">
-      <h1 className="font-bold text-3xl">~/edu</h1>
-      <div className="relative flex flex-row gap-10" ref={containerRef}>
-        {links.map((link) => (
-          <h1
-            key={link.id}
-            id={`nav-${link.id}`}
-            className={`text-3xl cursor-pointer ${activeSection === link.id ? "active-nav font-bold" : ""}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={() => handleClick(link.id)}
-          >
-            {link.label}
-          </h1>
-        ))}
-        <motion.div
-          className="absolute -bottom-1 h-0.5 bg-black"
-          animate={{ left: underlineProps.left, width: underlineProps.width }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        />
+    <div id="nav" className="fixed w-full z-10">
+    <div className="fixed top-0 left-0 right-0 z-50 w-full">
+      <div className="max-w-screen-xl mx-auto flex flex-row justify-between m-10">
+        <h1 className="font-bold text-3xl">~/edu</h1>
+        <div className="relative flex flex-row gap-10" ref={containerRef}>
+          {links.map((link) => (
+            <h1
+              key={link.id}
+              id={`nav-${link.id}`}
+              className={`text-3xl cursor-pointer ${activeSection === link.id ? "active-nav font-bold" : ""}`}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onClick={() => handleClick(link.id)}
+            >
+              {link.label}
+            </h1>
+          ))}
+          <motion.div
+            className="absolute -bottom-1 h-0.5 bg-black"
+            animate={{ left: underlineProps.left, width: underlineProps.width }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+        </div>
       </div>
+    </div>
     </div>
   );
 }
