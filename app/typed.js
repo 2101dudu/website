@@ -5,7 +5,7 @@ class Typing extends React.Component {
   componentDidMount() {
     const options = {
       strings: [
-        "$ Hello, I'm Eduardo.",
+        "> Hello, I'm Eduardo.",
       ],
       typeSpeed: 100,
       backSpeed: 15,
