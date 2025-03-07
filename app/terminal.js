@@ -37,7 +37,7 @@ const Terminal = ({ initialStatements = [] }) => {
   };
 
   return (
-    <div className="shadow-2xl bg-zinc-400 shadow-gray-900 w-full max-w-screen-lg mx-auto mt-20 font-mono z-1">
+    <div className="shadow-2xl bg-zinc-400 shadow-gray-900 w-full max-w-screen-lg mx-10 mlgmx-auto mt-20 font-mono z-1">
       <div className="bg-gray-900 rounded-t-lg h-7 flex items-end px-3 space-x-2">
         <span className="w-3 h-3 bg-red-500 rounded-full"></span>
         <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
@@ -67,7 +67,6 @@ const Terminal = ({ initialStatements = [] }) => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="bg-transparent border-none focus:outline-none text-white w-full"
-            autoFocus
           />
         </form>
       </div>

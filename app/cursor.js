@@ -54,7 +54,7 @@ const Cursor = () => {
 
   return (
     <motion.div
-      className="cursor"
+      className="collapse md:visible cursor"
       animate={{ scale: isHoveringLink ? 2 : 1 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       style={{
