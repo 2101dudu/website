@@ -1,5 +1,6 @@
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
 
 const jetBrains = JetBrains_Mono({
   variable: "--font-jet-brains",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         className={`${jetBrains.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
