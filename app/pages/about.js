@@ -26,7 +26,7 @@ export default [
         )
     },
     {
-        input: "wget --output-document=resume.pdf https://eduardofaria.pt/resume.pdf",
+        input: "wget --output-document=resume.pdf eduardofaria.pt/resume.pdf",
         return: (
             <>
                 <a href="https://eduardofaria.pt/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">&apos;resume.pdf&apos;</a> saved
