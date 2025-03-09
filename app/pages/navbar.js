@@ -77,7 +77,7 @@ export default function NavBar() {
 
   return (
     <div id="nav" className="fixed w-full z-10">
-      <div className="fixed top-0 left-0 right-0 z-50 w-full">
+      <div className="fixed top-0 left-0 right-0 z-50 w-9/10 mx-auto">
         <div className="max-w-screen-xl mx-10 xl:mx-auto flex flex-row md:justify-between justify-center m-10">
           <h1 className="font-bold text-3xl">~/edu</h1>
           <div className="hidden relative md:flex md:flex-row gap-10" ref={containerRef}>
