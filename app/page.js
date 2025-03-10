@@ -60,8 +60,8 @@ export default function Home() {
                 <p>A Distributed Network Monitoring system written in <span className="font-extrabold">GO</span> with custom UDP and TCP protocols for collecting and alerting network metrics.</p>
               </div>
               <div>
-                <a href="https://github.com/2101dudu/Task-Orchestrator-So" target="_blank" className="w-50 flex items-center gap-2">
-                  <h1 className="underline sm:text-xl text-md font-bold text-left">Task Scheduler</h1>
+                <a href="https://github.com/2101dudu/Task-Orchestrator-SO" target="_blank" className="w-75 flex items-center gap-2">
+                  <h1 className="underline sm:text-xl text-md font-bold text-left">Task Delegation Server</h1>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4"><path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg>
                 </a>
                 <p>A <span className="font-extrabold">C-based</span> task orchestration server that executes bash commands from multiple concurrent clients using named pipes and scheduling algorithms.</p>
@@ -69,16 +69,15 @@ export default function Home() {
             </div>
             <div className="flex-1/2 flex flex-col gap-5">
               <div>
-                <a href="https://github.com/2101dudu/cg" target="_blank" className="w-78 flex items-center gap-2">
-                  <h1 className="underline sm:text-xl text-md font-bold text-left">Graph-based Game Engine</h1>
+                <a href="https://github.com/2101dudu/blockchain" target="_blank" className="w-78 flex items-center gap-2">  
+                  <h1 className="underline sm:text-xl text-md font-bold text-left">Proof-of-Work Blockchain</h1>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4"><path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg>
                 </a>
-                (private, for now)
-                <p>A mini scene 3D engine written in <span className="font-extrabold">C++</span> for rendering complex primitives supporting an interactive UI.</p>
+                <p>A lightweight blockchain in <b>GO</b> with proof-of-work, BadgerDB storage, and a CLI. Built from scratch to explore blockchain and cryptographic fundamentals.</p>
               </div>
               <div>
                 <a href="https://github.com/2101dudu/Distributed-Remote-Storage-SD" target="_blank" className="w-85 flex items-center gap-2">
-                  <h1 className="underline sm:text-xl text-md font-bold text-left">Distributed-Remote-Storage</h1>
+                  <h1 className="underline sm:text-xl text-md font-bold text-left">Distributed Remote Storage</h1>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-4"><path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg>
                 </a>
                 <p>A distributed in-memory data store with a client-server architecture, leveraging TCP sockets and multi-threading for efficient, concurrent access in <span className="font-extrabold">Java</span>.</p>
