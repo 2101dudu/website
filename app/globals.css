@@ -5,7 +5,7 @@
 }
 
 :root {
-  --background: #CCCCCC;
+  --background: #fdfdfd;
   --gray: #757575;
   --foreground: #000000;
 }
@@ -17,11 +17,12 @@ body {
 }
 
 #nav {
-  box-shadow: 0 30 100px 50px #CCCCCC;
+  box-shadow: 0 30 100px 50px #fdfdfd;
 }
 
 @media screen and (min-width: 768px) {
   #nav {
-    box-shadow: 0 30 100px 100px #CCCCCC;
+    box-shadow: 0 30 100px 100px #fdfdfd;
   }
 }
+
