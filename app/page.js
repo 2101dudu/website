@@ -4,17 +4,13 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 
 const Typing = dynamic(() => import("./components/typed"), { ssr: false });
-import Cursor from "./components/cursor";
 import Terminal from "./components/terminal";
 
-import NavBar from "./pages/navbar";
 import aboutMe from "./pages/about.js";
 
 export default function Home() {
   return (
     <>
-      <Cursor />
-      <NavBar />
       <div
         id="home"
         className="max-w-screen-xl mx-10 xl:mx-auto xl:w-9/10 lg:h-150 sm:h-200 h-130 flex lg:flex-row flex-col lg:items-end lg:pt-0 sm:pt-20 pt-30 items-center justify-center relative sm:gap-0 gap-10"
