@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const renderTextWithLinks = (text) => {
   const urlRegex = /(https?:\/\/(?:www\.)?[^\s]+)/g;
@@ -26,6 +26,14 @@ const renderTextWithLinks = (text) => {
 const Terminal = ({ initialStatements = [] }) => {
   const [statements, setStatements] = useState(initialStatements);
   const [input, setInput] = useState("");
+  const inputRef = useRef(null);
+
+  // Focus the input on mount without scrolling the page
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus({ preventScroll: true });
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,7 +45,6 @@ const Terminal = ({ initialStatements = [] }) => {
       const newStatement = { input, return: `${input}` };
       setStatements([...statements, newStatement]);
     }
-
     setInput("");
   };
 
@@ -56,7 +63,7 @@ const Terminal = ({ initialStatements = [] }) => {
         className="p-4 rounded-b-lg shadow-lg min-h-[200px]"
       >
         {statements.map((statement, index) => (
-          <div key={index} className="mb-6  ">
+          <div key={index} className="mb-6">
             <div id="terminal-highlight-prompt">&gt; {statement.input}</div>
             <div id="terminal-highlight-generic">
               {Array.isArray(statement.return)
@@ -76,6 +83,7 @@ const Terminal = ({ initialStatements = [] }) => {
         <form onSubmit={handleSubmit} className="flex items-center">
           <span className="text-green-400">&gt;&nbsp;</span>
           <input
+            ref={inputRef}
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}

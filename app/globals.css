@@ -7,9 +7,9 @@
 :root {
   --background: #fafafa;
   --foreground: #1d1d1f;
-  --terminal-highlight: #1f1f28;
-  --terminal-highlight-prompt: #4ade80;
-  --terminal-highlight-generic: #fafafa;
+  --terminal-highlight: #6a6a6a;
+  --terminal-highlight-prompt: #13ec35;
+  --terminal-highlight-generic: #ffffff;
 }
 
 .dark {

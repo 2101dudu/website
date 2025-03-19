@@ -2,10 +2,17 @@ import { useEffect, useState } from "react";
 
 export default function DarkModeToggle() {
   const [darkMode, setDarkMode] = useState(() => {
-    return (
-      typeof window !== "undefined" && localStorage.getItem("theme") === "dark"
-    );
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("theme") === "dark";
+    }
+    return false;
   });
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
@@ -16,6 +23,8 @@ export default function DarkModeToggle() {
       localStorage.setItem("theme", "light");
     }
   }, [darkMode]);
+
+  if (!mounted) return null;
 
   return (
     <button
