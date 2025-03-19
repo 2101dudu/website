@@ -3,17 +3,22 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState, useMemo } from "react";
 
+import DarkModeToggle from "../components/darkmodetoggle";
+
 export default function NavBar() {
   const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
   const [activeSection, setActiveSection] = useState("home");
   const containerRef = useRef(null);
   const resetTimeoutRef = useRef(null);
 
-  const links = useMemo(() => [
-    { label: "/home", id: "home" },
-    { label: "/about", id: "about" },
-    { label: "/projects", id: "projects" },
-  ], []);
+  const links = useMemo(
+    () => [
+      { label: "/home", id: "home" },
+      { label: "/about", id: "about" },
+      { label: "/projects", id: "projects" },
+    ],
+    [],
+  );
 
   const updateUnderline = (element) => {
     if (!containerRef.current || !element) return;
@@ -35,7 +40,7 @@ export default function NavBar() {
 
   const handleMouseLeave = () => {
     resetTimeoutRef.current = setTimeout(() => {
-      const activeElement = document.querySelector('.active-nav');
+      const activeElement = document.querySelector(".active-nav");
       if (activeElement) updateUnderline(activeElement);
     }, 50);
   };
@@ -80,7 +85,10 @@ export default function NavBar() {
       <div className="fixed top-0 left-0 right-0 z-50 w-9/10 mx-auto">
         <div className="max-w-screen-xl mx-10 xl:mx-auto flex flex-row md:justify-between justify-center m-10">
           <h1 className="font-bold text-3xl">~/edu</h1>
-          <div className="hidden relative md:flex md:flex-row gap-10" ref={containerRef}>
+          <div
+            className="hidden relative md:flex md:flex-row gap-10"
+            ref={containerRef}
+          >
             {links.map((link) => (
               <h1
                 key={link.id}
@@ -94,10 +102,15 @@ export default function NavBar() {
               </h1>
             ))}
             <motion.div
-              className="absolute -bottom-1 h-0.5 bg-black"
-              animate={{ left: underlineProps.left, width: underlineProps.width }}
+              id="highlight"
+              className="absolute -bottom-1 h-0.5"
+              animate={{
+                left: underlineProps.left,
+                width: underlineProps.width,
+              }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             />
+            <DarkModeToggle />
           </div>
         </div>
       </div>

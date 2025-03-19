@@ -5,24 +5,61 @@
 }
 
 :root {
-  --background: #fdfdfd;
-  --gray: #757575;
-  --foreground: #000000;
+  --background: #fafafa;
+  --foreground: #1d1d1f;
+  --terminal-highlight: #6a6a6a;
+  --terminal-highlight-prompt: #13ec35;
+  --terminal-highlight-generic: #ffffff;
+}
+
+.dark {
+  --background: #1d1d1f;
+  --foreground: #fafafa;
+  --terminal-highlight: #282828;
+  --terminal-highlight-prompt: #4ade80;
+  --terminal-highlight-generic: #fafafa;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: JetBrains Mono;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 #nav {
-  box-shadow: 0 30 100px 50px #fdfdfd;
+  box-shadow: 0 30 100px 50px var(--foreground);
+}
+
+#highlight {
+  background-color: var(--foreground);
+}
+
+#svg-icon {
+  fill: var(--foreground);
+}
+
+#stroke {
+  stroke-width: 3;
+  fill: var(--foreground);
+}
+
+#terminal-highlight {
+  background-color: var(--terminal-highlight);
+}
+
+#terminal-highlight-prompt {
+  color: var(--terminal-highlight-prompt);
+}
+
+#terminal-highlight-generic {
+  color: var(--terminal-highlight-generic);
 }
 
 @media screen and (min-width: 768px) {
   #nav {
-    box-shadow: 0 30 100px 100px #fdfdfd;
+    box-shadow: 0 30 100px 100px var(--foreground);
   }
 }
-
