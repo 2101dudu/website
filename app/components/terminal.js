@@ -42,7 +42,7 @@ const Terminal = ({ initialStatements = [] }) => {
   };
 
   return (
-    <div className="shadow-2xl shadow-gray-900 sm:w-full max-w-screen-lg mx-10 w-9/10 lg:mx-auto mt-20 font-mono z-1">
+    <div className="shadow-2xl sm:w-full max-w-screen-lg mx-10 w-9/10 lg:mx-auto mt-20 font-mono z-1">
       <div
         id="terminal-highlight"
         className="rounded-t-lg h-7 flex items-end px-3 space-x-2"

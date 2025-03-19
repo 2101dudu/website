@@ -22,7 +22,7 @@ export default function DarkModeToggle() {
       onClick={() => setDarkMode((prev) => !prev)}
       className="p-2 rounded-md border border-gray-300 dark:border-gray-600"
     >
-      {darkMode ? "🌙" : "☀️"}
+      {darkMode ? "escuro" : "sol"}
     </button>
   );
 }

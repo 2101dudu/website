@@ -7,17 +7,17 @@
 :root {
   --background: #fafafa;
   --foreground: #1d1d1f;
-  --terminal-highlight: #fafafa;
+  --terminal-highlight: #1f1f28;
   --terminal-highlight-prompt: #4ade80;
-  --terminal-highlight-generic: red;
+  --terminal-highlight-generic: #fafafa;
 }
 
 .dark {
   --background: #1d1d1f;
   --foreground: #fafafa;
-  --terminal-highlight: #1d1d1f;
+  --terminal-highlight: #282828;
   --terminal-highlight-prompt: #4ade80;
-  --terminal-highlight-generic: yellow;
+  --terminal-highlight-generic: #fafafa;
 }
 
 body {
