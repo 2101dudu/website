@@ -4,6 +4,8 @@ import { Analytics } from "@vercel/analytics/react";
 
 import Cursor from "./components/cursor";
 import NavBar from "./pages/navbar";
+import BottomGradient from "./components/bottomgradient";
+import TopGradient from "./components/topgradient";
 
 const jetBrains = JetBrains_Mono({
   variable: "--font-jet-brains",
@@ -21,7 +23,9 @@ export default function RootLayout({ children }) {
       <body className={`${jetBrains.variable} antialiased`}>
         <Cursor />
         <NavBar />
+        <TopGradient />
         {children}
+        <BottomGradient />
         <Analytics />
       </body>
     </html>
