@@ -2,20 +2,27 @@
 
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState, useMemo } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 import DarkModeToggle from "../components/darkmodetoggle";
 
 export default function NavBar() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState(
+    pathname === "/blog" ? "blog" : "home",
+  );
+  const [isScrolling, setIsScrolling] = useState(false);
   const containerRef = useRef(null);
   const resetTimeoutRef = useRef(null);
 
   const links = useMemo(
     () => [
-      { label: "/home", id: "home" },
-      { label: "/about", id: "about" },
-      { label: "/projects", id: "projects" },
+      { label: "/home", id: "home", scroll: true },
+      { label: "/about", id: "about", scroll: true },
+      { label: "/projects", id: "projects", scroll: true },
+      { label: "/blog", id: "blog", scroll: false },
     ],
     [],
   );
@@ -45,14 +52,42 @@ export default function NavBar() {
     }, 50);
   };
 
-  const handleClick = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleClick = (link) => {
+    // Update the active section immediately.
+    setActiveSection(link.id);
+
+    if (!link.scroll) {
+      // Blog link: simply navigate to /blog.
+      if (pathname !== "/blog") {
+        router.push("/blog");
+      }
+      return;
+    } else {
+      if (pathname === "/blog") {
+        // If on blog page, navigate back to main page with hash.
+        router.push(`/#${link.id}`);
+      } else {
+        // On the main page, scroll to the section.
+        const element = document.getElementById(link.id);
+        if (element) {
+          setIsScrolling(true);
+          element.scrollIntoView({ behavior: "smooth" });
+          // Disable observer updates briefly to let the smooth scroll finish.
+          setTimeout(() => setIsScrolling(false), 800);
+        }
+      }
     }
   };
 
   useEffect(() => {
+    // When on the blog page, force activeSection to "blog".
+    if (pathname === "/blog") {
+      setActiveSection("blog");
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    // IntersectionObserver to update active section when scrolling manually.
     const observerOptions = {
       root: null,
       rootMargin: "-40% 0px -40% 0px",
@@ -60,6 +95,9 @@ export default function NavBar() {
     };
 
     const observer = new IntersectionObserver((entries) => {
+      // If we are scrolling programmatically, do not update.
+      if (isScrolling) return;
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
@@ -67,15 +105,19 @@ export default function NavBar() {
       });
     }, observerOptions);
 
-    links.forEach((link) => {
-      const section = document.getElementById(link.id);
-      if (section) observer.observe(section);
-    });
+    // Observe only the scrollable sections.
+    links
+      .filter((link) => link.scroll)
+      .forEach((link) => {
+        const section = document.getElementById(link.id);
+        if (section) observer.observe(section);
+      });
 
     return () => observer.disconnect();
-  }, [links]);
+  }, [links, isScrolling]);
 
   useEffect(() => {
+    // Update the underline position when the active section changes.
     const activeElement = document.getElementById(`nav-${activeSection}`);
     if (activeElement) updateUnderline(activeElement);
   }, [activeSection]);
@@ -93,10 +135,12 @@ export default function NavBar() {
               <h1
                 key={link.id}
                 id={`nav-${link.id}`}
-                className={`text-3xl cursor-pointer ${activeSection === link.id ? "active-nav font-bold" : ""}`}
+                className={`text-3xl cursor-pointer ${
+                  activeSection === link.id ? "active-nav font-bold" : ""
+                }`}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                onClick={() => handleClick(link.id)}
+                onClick={() => handleClick(link)}
               >
                 {link.label}
               </h1>
