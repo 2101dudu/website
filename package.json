@@ -9,17 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^15.2.3",
     "@react-spring/web": "^9.7.5",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/mdx": "^2.0.13",
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.10",
+    "gray-matter": "^4.0.3",
     "gsap": "^3.12.7",
+    "highlight.js": "^11.11.1",
     "mini-svg-data-uri": "^1.4.4",
     "motion": "^12.4.10",
     "next": "15.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-syntax-highlighter": "^15.6.1",
     "react-ui-animate": "^4.2.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-stringify": "^10.0.1",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "remark-rehype": "^11.1.1",
     "tailwind-merge": "^3.0.2",
     "typed.js": "^2.1.0"
   },
@@ -30,6 +43,7 @@
     "@types/react": "19.0.10",
     "eslint": "^9",
     "eslint-config-next": "15.2.0",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "typescript": "5.8.2"
   }
 }

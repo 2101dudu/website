@@ -1,0 +1,77 @@
+# homeserver stuff
+
+running a homeserver is really cool, and actually very simple. I've come to bother everyone I talk to and try to convince them to repurpose their old computers. it always starts the same, _"hey! did you know you can have X and Y running locally!?"_
+
+this post is actually a tutorial in disguise :)
+
+## the old pc
+
+the old/unused beast I'm having straped 24/7 running useless services is the **HP ProDesk 400 G3 SFF**. I flashed that business workhorse with ubuntu server and a couple of external hard drives and it now packs a punch
+
+-----
+
+wait, can I even put neofetch in here??
+
+```rust
+            .-/+oossssoo+/-.               dudu@homeserver
+        `:+ssssssssssssssssss+:`           ---------------
+      -+ssssssssssssssssssyyssss+-         OS: Ubuntu 24.04.2 LTS x86_64
+    .ossssssssssssssssssdMMMNysssso.       Host: HP ProDesk 400 G3 SFF
+   /ssssssssssshdmmNNmmyNMMMMhssssss/      Kernel: 6.8.0-55-generic
+  +ssssssssshmydMMMMMMMNddddyssssssss+     Uptime: 69 hours, 420 mins
+ /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/    Packages: 928 (dpkg)
+.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Shell: bash 5.2.21
++sssshhhyNMMNyssssssssssssyNMMMysssssss+   Terminal: /dev/pts/0
+ossyNMMMNyMMhsssssssssssssshmmmhssssssso   CPU: Intel i5-6500 (4) @ 3.600GHz
+ossyNMMMNyMMhsssssssssssssshmmmhssssssso   GPU: Intel HD Graphics 530
++sssshhhyNMMNyssssssssssssyNMMMysssssss+   Memory: 1580MiB / 7836MiB
+.ssssssssdMMMNhsssssssssshNMMMdssssssss.
+ /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/
+  +sssssssssdmydMMMMMMMMddddyssssssss+
+   /ssssssssssshdmNNNNmyNMMMMhssssss/
+    .ossssssssssssssssssdMMMNysssso.
+      -+sssssssssssssssssyyyssss+-
+        `:+ssssssssssssssssss+:`
+            .-/+oossssoo+/-.
+
+```
+_LETSGOOOO_
+
+-----
+
+
+## CasaOS
+
+getting started was a breeze with [CasaOS](https://casaos.io/). just run `curl -fsSL https://get.casaos.io | sudo bash` and you have yourself a well-designed and simple-to-use UI available on the browser
+
+that's legit **80%** of the way done.
+
+## services
+
+installing services through the CasaOS web app is stupidly easy, though a bit limited. you can also follow my steps and shoot yourself in the foot trying to learn and use docker containers. I've done it enough times to be an expert in failling
+
+here's a simplified list of what I have going on inside the homeserver — I highly recommend actually learning what they do, and not taking my word for it
+    - [Immich](https://github.com/immich-app/immich) (_**CasaOS app store**_): simply put, a free unlimited-storage google photos alternative (unlimited if you have the $ for those drives)
+    - [Portainer](https://www.portainer.io/) (_**CasaOS app store**_): a sleek platform to manage docker containers
+    - [Pi-hole](https://pi-hole.net/): their slogan says it all — _"Network-wide Ad Blocking"_
+    - [your_spotify](https://github.com/Yooooomi/your_spotify): why wait for spotify wrapped to come when you can use their API and get charts with even better insights?
+    - Discord bot: a python program that pings and periodically alerts our discord servers of upcoming tests'/project's due dates
+    - Kali Linux VM: self-explanatory
+
+
+the thing about having a homeserver is that you start to realize you can self-host pretty much everything with the added benefit of not relying on any third-party services with hundreds of engineers working around the clock on million-dollar servers. **only you and your humble computer** 🤔
+
+## accessing the server
+
+well you'll need to eventually access the server. CasaOS does a great job in terms of webUI, but ssh-_ing_ into the server is way cooler. instead of exposing router ports or using a proxy server, I opted to use [tailscale](https://tailscale.com). it's a private VPN for your devices to communicate with each other
+
+pair that up with a DNS and I get access to my homeserver and its services via [homserver.eduardofaria.pt](homserver.eduardofaria.pt) (when on LAN) or [server.eduardofaria.pt](server.eduardofaria.pt) (when on WAN). you can try to access it, but the beauty is that only with tailscale permissions can you actually use them :)
+
+## other cool stuff
+
+- _suuuper_ quiet fans
+- 2TB external hard drive
+- 1GBs ethernet speeds for fast file transfer speeds 
+- stay-at-home mom for reliable reboots from power outages 
+
+at the end of the day, _the cloud is just someone else's computer_

@@ -7,7 +7,7 @@
 :root {
   --background: #fafafa;
   --foreground: #1d1d1f;
-  --terminal-highlight: #6a6a6a;
+  --terminal-highlight: #282c34;
   --terminal-highlight-prompt: #13ec35;
   --terminal-highlight-generic: #ffffff;
 }
@@ -24,6 +24,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: JetBrains Mono;
+  overflow-x: hidden;
   transition:
     background-color 0.3s,
     color 0.3s;

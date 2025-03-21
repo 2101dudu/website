@@ -2,20 +2,25 @@
 
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState, useMemo } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 import DarkModeToggle from "../components/darkmodetoggle";
 
 export default function NavBar() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
   const [activeSection, setActiveSection] = useState("home");
+  const [isScrolling, setIsScrolling] = useState(false);
   const containerRef = useRef(null);
   const resetTimeoutRef = useRef(null);
 
   const links = useMemo(
     () => [
-      { label: "/home", id: "home" },
-      { label: "/about", id: "about" },
-      { label: "/projects", id: "projects" },
+      { label: "/home", id: "home", scroll: true },
+      { label: "/about", id: "about", scroll: true },
+      { label: "/projects", id: "projects", scroll: true },
+      { label: "/blog", id: "blog", scroll: false },
     ],
     [],
   );
@@ -45,12 +50,40 @@ export default function NavBar() {
     }, 50);
   };
 
-  const handleClick = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleClick = (link) => {
+    setActiveSection(link.id);
+
+    if (link.id === "blog") {
+      if (pathname !== "/blog") {
+        router.push("/blog");
+      }
+      return;
+    }
+
+    if (pathname.startsWith("/blog")) {
+      router.push(`/#${link.id}`);
+      setTimeout(() => {
+        document
+          .getElementById(link.id)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 500);
+    } else {
+      const element = document.getElementById(link.id);
+      if (element) {
+        setIsScrolling(true);
+        element.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => setIsScrolling(false), 800);
+      }
     }
   };
+
+  useEffect(() => {
+    if (pathname.startsWith("/blog")) {
+      setActiveSection("blog");
+    } else {
+      setActiveSection("home");
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const observerOptions = {
@@ -60,6 +93,8 @@ export default function NavBar() {
     };
 
     const observer = new IntersectionObserver((entries) => {
+      if (isScrolling) return;
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
@@ -67,13 +102,15 @@ export default function NavBar() {
       });
     }, observerOptions);
 
-    links.forEach((link) => {
-      const section = document.getElementById(link.id);
-      if (section) observer.observe(section);
-    });
+    links
+      .filter((link) => link.scroll)
+      .forEach((link) => {
+        const section = document.getElementById(link.id);
+        if (section) observer.observe(section);
+      });
 
     return () => observer.disconnect();
-  }, [links]);
+  }, [links, isScrolling]);
 
   useEffect(() => {
     const activeElement = document.getElementById(`nav-${activeSection}`);
@@ -81,10 +118,10 @@ export default function NavBar() {
   }, [activeSection]);
 
   return (
-    <div id="nav" className="fixed w-full z-10">
+    <div id="nav" className="fixed w-full z-51">
       <div className="fixed top-0 left-0 right-0 z-50 w-9/10 mx-auto">
-        <div className="max-w-screen-xl mx-10 xl:mx-auto flex flex-row md:justify-between justify-center m-10">
-          <h1 className="font-bold text-3xl">~/edu</h1>
+        <div className="max-w-screen-xl mx-10 md:mx-auto flex flex-row md:justify-between justify-center m-10 gap-20">
+          <h1 className="font-bold text-2xl lg:text-3xl">~/edu</h1>
           <div
             className="hidden relative md:flex md:flex-row gap-10"
             ref={containerRef}
@@ -93,10 +130,12 @@ export default function NavBar() {
               <h1
                 key={link.id}
                 id={`nav-${link.id}`}
-                className={`text-3xl cursor-pointer ${activeSection === link.id ? "active-nav font-bold" : ""}`}
+                className={`text-2xl lg:text-3xl cursor-pointer ${
+                  activeSection === link.id ? "active-nav font-bold" : ""
+                }`}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                onClick={() => handleClick(link.id)}
+                onClick={() => handleClick(link)}
               >
                 {link.label}
               </h1>

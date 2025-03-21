@@ -49,10 +49,10 @@ const Terminal = ({ initialStatements = [] }) => {
   };
 
   return (
-    <div className="shadow-2xl sm:w-full max-w-screen-lg mx-10 w-9/10 lg:mx-auto mt-20 font-mono z-1">
+    <div className=" shadow-2xl sm:w-full max-w-screen-lg mx-10 w-9/10 lg:mx-auto mt-20 font-mono z-1">
       <div
         id="terminal-highlight"
-        className="rounded-t-lg h-7 flex items-end px-3 space-x-2"
+        className="transition-colors duration-300 rounded-t-lg h-7 flex items-end px-3 space-x-2"
       >
         <span className="w-3 h-3 bg-red-500 rounded-full"></span>
         <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
@@ -60,7 +60,7 @@ const Terminal = ({ initialStatements = [] }) => {
       </div>
       <div
         id="terminal-highlight"
-        className="p-4 rounded-b-lg shadow-lg min-h-[200px]"
+        className="transition-colors duration-300 p-4 rounded-b-lg shadow-lg min-h-[200px]"
       >
         {statements.map((statement, index) => (
           <div key={index} className="mb-6">
