@@ -20,7 +20,7 @@ export default function Home() {
             <h1 className="xl:text-5xl sm:text-4xl text-2xl font-extrabold text-left">
               <Typing />
             </h1>
-            <h1 className="xl:text-xl sm:text-lg text-xs text-neutral-500 italic text-left lg:pt-7 sm:pt-4 pt-2">
+            <h1 className="xl:text-xl sm:text-lg text-xs opacity-50 italic text-left lg:pt-7 sm:pt-4 pt-2">
               Segmentation faults build character.
             </h1>
           </div>
@@ -57,7 +57,7 @@ export default function Home() {
                 <a
                   href="https://github.com/2101dudu/Network-Monitoring-System-CC"
                   target="_blank"
-                  className="w-85 flex items-center gap-2"
+                  className="w-85 flex items-center gap-2 text-blue-500"
                 >
                   <h1 className="underline sm:text-xl text-md font-bold text-left">
                     Network Monitoring System
@@ -79,7 +79,7 @@ export default function Home() {
                 </a>
                 <p>
                   A Distributed Network Monitoring system written in{" "}
-                  <span className="font-extrabold">GO</span> with custom UDP and
+                  <span className="font-extrabold">Go</span> with custom UDP and
                   TCP protocols for collecting and alerting network metrics.
                 </p>
               </div>
@@ -87,7 +87,7 @@ export default function Home() {
                 <a
                   href="https://github.com/2101dudu/Task-Orchestrator-SO"
                   target="_blank"
-                  className="w-75 flex items-center gap-2"
+                  className="w-75 flex items-center gap-2 text-blue-500"
                 >
                   <h1 className="underline sm:text-xl text-md font-bold text-left">
                     Task Delegation Server
@@ -120,7 +120,7 @@ export default function Home() {
                 <a
                   href="https://github.com/2101dudu/blockchain"
                   target="_blank"
-                  className="w-78 flex items-center gap-2"
+                  className="w-78 flex items-center gap-2 text-blue-500"
                 >
                   <h1 className="underline sm:text-xl text-md font-bold text-left">
                     Proof-of-Work Blockchain
@@ -141,16 +141,17 @@ export default function Home() {
                   </svg>
                 </a>
                 <p>
-                  A lightweight blockchain in <b>GO</b> with proof-of-work,
-                  BadgerDB storage, and a CLI. Built from scratch to explore
-                  blockchain and cryptographic fundamentals.
+                  A lightweight, modular, high-performance blockchain in{" "}
+                  <span className="font-extrabold">Go</span> featuring PoW
+                  consensus, UTXO management, Merkle trees, ECDSA signing, P2P
+                  networking, and an efficient transaction validation pipeline.
                 </p>
               </div>
               <div>
                 <a
                   href="https://github.com/2101dudu/Distributed-Remote-Storage-SD"
                   target="_blank"
-                  className="w-85 flex items-center gap-2"
+                  className="w-85 flex items-center gap-2 text-blue-500"
                 >
                   <h1 className="underline sm:text-xl text-md font-bold text-left">
                     Distributed Remote Storage

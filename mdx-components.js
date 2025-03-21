@@ -19,7 +19,9 @@ export function useMDXComponents(components) {
     ),
 
     // Paragraph
-    p: ({ children }) => <p className="font-regular text-md">{children}</p>,
+    p: ({ children }) => (
+      <p className="font-regular text-md mb-3">{children}</p>
+    ),
 
     // Blockquote
     blockquote: ({ children }) => (
@@ -34,7 +36,7 @@ export function useMDXComponents(components) {
         const language = className.replace(/language-/, "");
         return (
           <div className="w-screen flex justify-start">
-            <div className="my-4 w-full max-w-screen-lg">
+            <div className="my-4 w-9/10 max-w-screen-lg">
               <div className="w-auto">
                 <SyntaxHighlighter
                   language={language}
@@ -52,7 +54,12 @@ export function useMDXComponents(components) {
 
       // Otherwise, treat as inline code
       return (
-        <code className="bg-[#282C34] rounded px-1 py-0.5">{children}</code>
+        <code
+          id="terminal-highlight"
+          className="bg-[#282C34] rounded px-1 py-0.5"
+        >
+          {children}
+        </code>
       );
     },
 
@@ -62,7 +69,7 @@ export function useMDXComponents(components) {
 
     // Ordered list
     ol: ({ children }) => (
-      <ol className="list-decimal pl-5 mb-4">{children}</ol>
+      <ol className="list-decimal pl-7 mb-4">{children}</ol>
     ),
 
     // Table elements
@@ -79,10 +86,24 @@ export function useMDXComponents(components) {
     ),
 
     // Image
-    img: ({ alt, src }) => <Image alt={alt} src={src} className="my-4" />,
+    img: ({ alt, src }) => (
+      <Image width="300" height="200" alt={alt} src={src} className="my-4" />
+    ),
+
+    // links
+    a: ({ children, href }) => (
+      <a
+        href={href}
+        className="text-blue-500 underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {children}
+      </a>
+    ),
 
     // Horizontal rule
-    hr: () => <hr className="my-8" />,
+    hr: () => <hr id="terminal-highlight" className="my-4 w-full h-0.5" />,
 
     // Spread any additional components
     ...components,

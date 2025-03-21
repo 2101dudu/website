@@ -26,7 +26,7 @@ const TopGradient = () => {
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 -translate-y-full pointer-events-none"
-      } transition-all duration-300 ease-in-out fixed top-0 left-0 right-0 h-32 sm:h-40 md:h-48 pointer-events-none [backdrop-filter:blur(2px)] [mask:linear-gradient(black_70%,transparent)] z-50`}
+      } transition-all duration-300 ease-in-out fixed top-0 left-0 right-0 h-32 sm:h-30 md:h-40 pointer-events-none [backdrop-filter:blur(4px)] [mask:linear-gradient(black_60%,transparent)] z-50`}
     />
   );
 };

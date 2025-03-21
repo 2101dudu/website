@@ -1,4 +1,4 @@
-export default function NavBar() {
+export default function Footer() {
   return (
     <section
       id="footer"
@@ -13,6 +13,7 @@ export default function NavBar() {
         >
           <svg
             id="svg-icon"
+            className="transition-colors duration-300 "
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
@@ -31,6 +32,7 @@ export default function NavBar() {
         >
           <svg
             id="svg-icon"
+            className="transition-colors duration-300 "
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
@@ -47,6 +49,7 @@ export default function NavBar() {
         >
           <svg
             id="svg-icon"
+            className="transition-colors duration-300 "
             width="30"
             height="30"
             viewBox="0 0 24 24"

@@ -10,9 +10,7 @@ export default function NavBar() {
   const router = useRouter();
   const pathname = usePathname();
   const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
-  const [activeSection, setActiveSection] = useState(
-    pathname === "/blog" ? "blog" : "home",
-  );
+  const [activeSection, setActiveSection] = useState("home");
   const [isScrolling, setIsScrolling] = useState(false);
   const containerRef = useRef(null);
   const resetTimeoutRef = useRef(null);
@@ -53,41 +51,41 @@ export default function NavBar() {
   };
 
   const handleClick = (link) => {
-    // Update the active section immediately.
     setActiveSection(link.id);
 
-    if (!link.scroll) {
-      // Blog link: simply navigate to /blog.
+    if (link.id === "blog") {
       if (pathname !== "/blog") {
         router.push("/blog");
       }
       return;
+    }
+
+    if (pathname.startsWith("/blog")) {
+      router.push(`/#${link.id}`);
+      setTimeout(() => {
+        document
+          .getElementById(link.id)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 500);
     } else {
-      if (pathname === "/blog") {
-        // If on blog page, navigate back to main page with hash.
-        router.push(`/#${link.id}`);
-      } else {
-        // On the main page, scroll to the section.
-        const element = document.getElementById(link.id);
-        if (element) {
-          setIsScrolling(true);
-          element.scrollIntoView({ behavior: "smooth" });
-          // Disable observer updates briefly to let the smooth scroll finish.
-          setTimeout(() => setIsScrolling(false), 800);
-        }
+      const element = document.getElementById(link.id);
+      if (element) {
+        setIsScrolling(true);
+        element.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => setIsScrolling(false), 800);
       }
     }
   };
 
   useEffect(() => {
-    // When on the blog page, force activeSection to "blog".
-    if (pathname === "/blog") {
+    if (pathname.startsWith("/blog")) {
       setActiveSection("blog");
+    } else {
+      setActiveSection("home");
     }
   }, [pathname]);
 
   useEffect(() => {
-    // IntersectionObserver to update active section when scrolling manually.
     const observerOptions = {
       root: null,
       rootMargin: "-40% 0px -40% 0px",
@@ -95,7 +93,6 @@ export default function NavBar() {
     };
 
     const observer = new IntersectionObserver((entries) => {
-      // If we are scrolling programmatically, do not update.
       if (isScrolling) return;
 
       entries.forEach((entry) => {
@@ -105,7 +102,6 @@ export default function NavBar() {
       });
     }, observerOptions);
 
-    // Observe only the scrollable sections.
     links
       .filter((link) => link.scroll)
       .forEach((link) => {
@@ -117,7 +113,6 @@ export default function NavBar() {
   }, [links, isScrolling]);
 
   useEffect(() => {
-    // Update the underline position when the active section changes.
     const activeElement = document.getElementById(`nav-${activeSection}`);
     if (activeElement) updateUnderline(activeElement);
   }, [activeSection]);

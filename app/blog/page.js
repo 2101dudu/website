@@ -3,31 +3,35 @@ import Link from "next/link";
 export default function Blog() {
   const posts = [
     {
-      title: "How I built a proof-of-work blockchain",
-      date: "2025-03-19",
-      slug: "blockchain",
-      description:
-        " A lightweight blockchain in Go with proof-of-work, BadgerDB storage, and a CLI. Built from scratch to explore blockchain and cryptographic fundamentals.",
+      title: "what I have running on my homeserver",
+      date: "2025-03-22",
+      slug: "homeserver",
+      description: "the services/programs running on my homeserver",
     },
     {
-      title: "Homserver stuff",
-      date: "2025-03-20",
-      slug: "homserver",
+      title: "how I built a proof-of-work blockchain",
+      date: "2025-03-21",
+      slug: "blockchain",
       description:
-        " A lightweight blockchain in Go with proof-of-work, BadgerDB storage, and a CLI. Built from scratch to explore blockchain and cryptographic fundamentals.",
+        "a lightweight, modular, high-performance blockchain in Go featuring PoW consensus, UTXO management, Merkle trees, ECDSA signing, P2P networking, and an efficient transaction validation pipeline.",
+    },
+    {
+      title: "first blog post",
+      date: "2025-03-17",
+      slug: "first-blog-post",
+      description: "feat: first commit",
     },
   ];
 
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
   return (
-    <div className="w-screen h-screen flex flex-col justify-start items-center gap-20 mt-30">
+    <div className="w-screen h-screen flex flex-col justify-start items-center gap-20 mt-50">
       <div className="max-w-screen-lg flex flex-col gap-15 justify-around items-start">
         <h1 className="text-5xl font-bold">Blog</h1>
         {posts.map((post) => (
-          <div
-            key={post.slug}
-            className="flex flex-col items-start justify-between"
-          >
-            <div className="flex items-center gap-10">
+          <div key={post.slug} className="flex flex-col items-start gap-2">
+            <div className="flex items-center gap-5">
               <Link
                 className="flex items-center gap-2 cursor-pointer"
                 href={`/blog/${post.slug}`}
@@ -48,7 +52,8 @@ export default function Blog() {
                   />
                 </svg>
               </Link>
-              <span className="text-xl italic text-zinc-300">{post.date}</span>
+              <p>·</p>
+              <span className="text-xl italic opacity-50">{post.date}</span>
             </div>
             <p>{post.description}</p>
           </div>
