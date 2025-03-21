@@ -7,7 +7,7 @@
 :root {
   --background: #fafafa;
   --foreground: #1d1d1f;
-  --terminal-highlight: #545668;
+  --terminal-highlight: #282c34;
   --terminal-highlight-prompt: #13ec35;
   --terminal-highlight-generic: #ffffff;
 }

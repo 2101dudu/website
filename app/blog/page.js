@@ -26,8 +26,8 @@ export default function Blog() {
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
-    <div className="w-screen h-screen flex flex-col justify-start items-center gap-20 mt-50">
-      <div className="max-w-screen-lg flex flex-col gap-15 justify-around items-start">
+    <div className="w-screen h-auto flex flex-col justify-start items-center gap-20 mt-50 mb-40">
+      <div className="md:max-w-screen-lg w-9/10 flex flex-col gap-15 justify-around items-start">
         <h1 className="text-5xl font-bold">Blog</h1>
         {posts.map((post) => (
           <div key={post.slug} className="flex flex-col items-start gap-2">

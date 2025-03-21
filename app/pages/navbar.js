@@ -120,8 +120,8 @@ export default function NavBar() {
   return (
     <div id="nav" className="fixed w-full z-51">
       <div className="fixed top-0 left-0 right-0 z-50 w-9/10 mx-auto">
-        <div className="max-w-screen-xl mx-10 xl:mx-auto flex flex-row md:justify-between justify-center m-10">
-          <h1 className="font-bold text-3xl">~/edu</h1>
+        <div className="max-w-screen-xl mx-10 md:mx-auto flex flex-row md:justify-between justify-center m-10 gap-20">
+          <h1 className="font-bold text-2xl lg:text-3xl">~/edu</h1>
           <div
             className="hidden relative md:flex md:flex-row gap-10"
             ref={containerRef}
@@ -130,7 +130,7 @@ export default function NavBar() {
               <h1
                 key={link.id}
                 id={`nav-${link.id}`}
-                className={`text-3xl cursor-pointer ${
+                className={`text-2xl lg:text-3xl cursor-pointer ${
                   activeSection === link.id ? "active-nav font-bold" : ""
                 }`}
                 onMouseEnter={handleMouseEnter}

@@ -28,7 +28,7 @@ export default function Home() {
         <div className="md:w-1/2 lg:h-2/3 h-1/2 flex sm:items-end lg:justify-end justify-center">
           <div className="relative lg:w-[360] lg:h-[360] sm:w-[300] sm:h-[300] w-[200] h-[200]">
             <Image
-              className="rounded-full"
+              className="rounded-full shadow-2xl"
               src="/images/foto_perfil.jpg"
               alt="Picture of the author"
               sizes="300px"
@@ -49,9 +49,9 @@ export default function Home() {
         id="projects"
         className="pt-30 mb-30 xl:max-w-screen-xl mx-10 xl:mx-auto md:h-150 flex items-start justify-center"
       >
-        <div className="md:max-w-screen-lg sm:w-auto w-9/10 h-2/3">
+        <div className="md:max-w-screen-lg sm:w-auto h-2/3">
           <h1 className="text-4xl font-extrabold text-left pb-20">Projects</h1>
-          <div className="flex md:flex-row flex-col lg:gap-30 md:gap-15 gap-5">
+          <div className="flex md:flex-row flex-col lg:gap-30 md:gap-10 gap-5">
             <div className="flex-1/2 flex flex-col gap-5">
               <div>
                 <a
