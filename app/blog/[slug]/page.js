@@ -16,6 +16,7 @@ export function generateStaticParams() {
     { slug: "first-blog-post" },
     { slug: "blockchain" },
     { slug: "homeserver" },
+    { slug: "wakatime" },
   ];
 }
 

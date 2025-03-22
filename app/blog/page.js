@@ -3,6 +3,12 @@ import Link from "next/link";
 export default function Blog() {
   const posts = [
     {
+      title: "code time tracker",
+      date: "2025-03-23",
+      slug: "wakatime",
+      description: "how WakaTime is incredible at making me question my life",
+    },
+    {
       title: "what I have running on my homeserver",
       date: "2025-03-22",
       slug: "homeserver",
@@ -16,7 +22,7 @@ export default function Blog() {
         "a lightweight, modular, high-performance blockchain in Go featuring PoW consensus, UTXO management, Merkle trees, ECDSA signing, P2P networking, and an efficient transaction validation pipeline.",
     },
     {
-      title: "first blog post",
+      title: "first blog post, kinda nervous",
       date: "2025-03-17",
       slug: "first-blog-post",
       description: "feat: first commit",
