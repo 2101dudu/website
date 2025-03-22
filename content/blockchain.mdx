@@ -194,6 +194,21 @@ We can now compare our block's hash's output to the target, and check if it's in
 This makes the process start over again, but now with a nonce of `1`. This gives a completely different hash that may be less than the target.
 This whole mechanism is tucked away inside of the `Run()` method.
 
+Let's see it in action. With `Difficulty` set to `12`, we get the following:
+
+<video width="full" height="auto" controls>
+  <source src="https://github.com/user-attachments/assets/842cece7-ba54-4648-bb33-583bf88b440a" type="video/mp4"></source>
+</video>
+
+<span className="mt-10"></span>
+
+Now, with `Difficulty` set to `20` — a marginal increase — our program takes a bit more time:
+
+<video width="full" height="auto" controls>
+  <source src="https://github.com/user-attachments/assets/ebd7511f-e5b0-4820-a9cd-75494ffd64c1" type="video/mp4">
+    </source>
+</video>
+
 ## And why is proof-of-work so safe?
 
 Imagine we now dial up our `Difficulty` up to `64`.
@@ -263,6 +278,26 @@ Usage:
     add -block BLOCK_DATA — adds a block to the blockchain
     print — Prints the blocks in the blockchain
 ```
+
+Let's put it in action!
+
+In this first example, the database has no entry, so a genesis node needs to be created and, most importantly, sign its proof-of-work.
+
+<video width="full" height="auto" controls>
+  <source src="https://github.com/user-attachments/assets/5f0d926a-a435-4a82-9936-213b17f265b2" type="video/mp4">
+    </source>
+</video>
+
+<span className="mt-10"></span>
+
+Now, in the following example, let's add two blocks to our blockchain.
+
+<video width="full" height="auto" controls>
+  <source src="https://github.com/user-attachments/assets/f0047a3b-5864-47e9-8fdf-340a0504e0f8" type="video/mp4">
+    </source>
+</video>
+
+
 
 # Transactions
 
@@ -359,6 +394,17 @@ Alice sends **7 tokens** to Bob, but since she started with **10 tokens**, she n
 - **Outputs**:
   - 7 tokens to Bob.
   - 3 tokens returned to Alice.
+
+
+## Showcase
+
+Let's see what we have got in action.
+
+<video width="full" height="auto" controls>
+  <source src="https://github.com/user-attachments/assets/0408679d-f936-47fe-858e-0c8bc0ec2e01" type="video/mp4">
+    </source>
+</video>
+
 
 # Wallets
 
