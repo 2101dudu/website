@@ -5,6 +5,7 @@ import Image from "next/image";
 
 const Typing = dynamic(() => import("./components/typed"), { ssr: false });
 import Terminal from "./components/terminal";
+import FadeIn from "./components/fadein";
 
 import aboutMe from "./pages/about.js";
 
@@ -17,32 +18,40 @@ export default function Home() {
       >
         <div className="lg:w-1/2 w-auto lg:h-1/3 h-1/7">
           <div className="flex-row">
-            <h1 className="xl:text-5xl sm:text-4xl text-2xl font-extrabold text-left">
-              <Typing />
-            </h1>
-            <h1 className="xl:text-xl sm:text-lg text-xs opacity-50 italic text-left lg:pt-7 sm:pt-4 pt-2">
-              Segmentation faults build character.
-            </h1>
+            <FadeIn>
+              <h1 className="xl:text-5xl sm:text-4xl text-2xl font-extrabold text-left">
+                <Typing />
+              </h1>
+            </FadeIn>
+            <FadeIn delay={200}>
+              <h1 className="xl:text-xl sm:text-lg text-xs opacity-50 italic text-left lg:pt-7 sm:pt-4 pt-2">
+                Segmentation faults build character.
+              </h1>
+            </FadeIn>
           </div>
         </div>
         <div className="md:w-1/2 lg:h-2/3 h-1/2 flex sm:items-end lg:justify-end justify-center">
           <div className="relative lg:w-[360] lg:h-[360] sm:w-[300] sm:h-[300] w-[200] h-[200]">
-            <Image
-              className="rounded-full shadow-2xl"
-              src="/images/foto_perfil.jpg"
-              alt="Picture of the author"
-              sizes="300px"
-              fill
-              style={{
-                objectFit: "contain",
-              }}
-            />
+            <FadeIn delay={400} className="h-full">
+              <Image
+                className="rounded-full shadow-2xl"
+                src="/images/foto_perfil.jpg"
+                alt="Picture of the author"
+                sizes="300px"
+                fill
+                style={{
+                  objectFit: "contain",
+                }}
+              />
+            </FadeIn>
           </div>
         </div>
       </div>
 
       <div id="about" className="flex justify-center items-center lg:py-20">
-        <Terminal initialStatements={aboutMe} />
+        <FadeIn>
+          <Terminal initialStatements={aboutMe} />
+        </FadeIn>
       </div>
 
       <section
@@ -53,7 +62,7 @@ export default function Home() {
           <h1 className="text-4xl font-extrabold text-left pb-20">Projects</h1>
           <div className="flex md:flex-row flex-col lg:gap-30 md:gap-10 gap-5">
             <div className="flex-1/2 flex flex-col gap-5">
-              <div>
+              <FadeIn delay={100}>
                 <a
                   href="https://github.com/2101dudu/Network-Monitoring-System-CC"
                   target="_blank"
@@ -82,8 +91,8 @@ export default function Home() {
                   <span className="font-extrabold">Go</span> with custom UDP and
                   TCP protocols for collecting and alerting network metrics.
                 </p>
-              </div>
-              <div>
+              </FadeIn>
+              <FadeIn delay={400}>
                 <a
                   href="https://github.com/2101dudu/Task-Orchestrator-SO"
                   target="_blank"
@@ -113,10 +122,10 @@ export default function Home() {
                   concurrent clients using named pipes and scheduling
                   algorithms.
                 </p>
-              </div>
+              </FadeIn>
             </div>
             <div className="flex-1/2 flex flex-col gap-5">
-              <div>
+              <FadeIn delay={200}>
                 <a
                   href="https://github.com/2101dudu/blockchain"
                   target="_blank"
@@ -146,8 +155,8 @@ export default function Home() {
                   consensus, UTXO management, Merkle trees, ECDSA signing, P2P
                   networking, and an efficient transaction validation pipeline.
                 </p>
-              </div>
-              <div>
+              </FadeIn>
+              <FadeIn delay={600}>
                 <a
                   href="https://github.com/2101dudu/Distributed-Remote-Storage-SD"
                   target="_blank"
@@ -177,7 +186,7 @@ export default function Home() {
                   efficient, concurrent access in{" "}
                   <span className="font-extrabold">Java</span>.
                 </p>
-              </div>
+              </FadeIn>
             </div>
           </div>
         </div>
