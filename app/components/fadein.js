@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-export default function _FadeIn({
+export default function FadeIn({
   children,
   className = "",
   threshold = 0.01,
