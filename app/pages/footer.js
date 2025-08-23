@@ -45,7 +45,7 @@ export default function Footer() {
         </a>
         <a
           className="hover:scale-120 transition duration-150 ease-in-out"
-          href="mailto:business@eduardofaria.pt"
+          href="mailto:business@eduardofaria.com"
         >
           <svg
             id="svg-icon"

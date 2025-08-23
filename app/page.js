@@ -56,138 +56,194 @@ export default function Home() {
 
       <section
         id="projects"
-        className="pt-30 mb-30 xl:max-w-screen-xl mx-10 xl:mx-auto md:h-150 flex items-start justify-center"
+        className="pt-30 mb-30 xl:max-w-screen-xl mx-10 xl:mx-auto md:h-auto flex items-start justify-center"
       >
         <div className="md:max-w-screen-lg sm:w-auto h-2/3">
           <h1 className="text-4xl font-extrabold text-left pb-20">Projects</h1>
-          <div className="flex md:flex-row flex-col lg:gap-30 md:gap-10 gap-5">
-            <div className="flex-1/2 flex flex-col gap-5">
-              <FadeIn delay={100}>
-                <a
-                  href="https://github.com/2101dudu/Network-Monitoring-System-CC"
-                  target="_blank"
-                  className="w-85 flex items-center gap-2 text-blue-500"
+          <div className="grid md:grid-cols-2 grid-cols-1 md:gap-10 gap-5">
+            <FadeIn delay={100}>
+              <a
+                href="https://github.com/2101dudu/3D-OpenGL-Engine-CG"
+                target="_blank"
+                className="w-75 flex items-center gap-2 text-blue-500"
+              >
+                <h1 className="underline sm:text-xl text-md font-bold text-left">
+                  3D OpenGL Engine
+                </h1>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="size-4"
                 >
-                  <h1 className="underline sm:text-xl text-md font-bold text-left">
-                    Network Monitoring System
-                  </h1>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="size-4"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                    />
-                  </svg>
-                </a>
-                <p>
-                  A Distributed Network Monitoring system written in{" "}
-                  <span className="font-extrabold">Go</span> with custom UDP and
-                  TCP protocols for collecting and alerting network metrics.
-                </p>
-              </FadeIn>
-              <FadeIn delay={400}>
-                <a
-                  href="https://github.com/2101dudu/Task-Orchestrator-SO"
-                  target="_blank"
-                  className="w-75 flex items-center gap-2 text-blue-500"
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                  />
+                </svg>
+              </a>
+              <p>
+                A modular <span className="font-extrabold">C++</span> 3D engine{" "}
+                with a custom model generator and real-time OpenGL rendering via XML{" "}
+                scene descriptions.
+              </p>
+            </FadeIn>
+            <FadeIn delay={200}>
+              <a
+                href="https://github.com/2101dudu/tarmac"
+                target="_blank"
+                className="w-78 flex items-center gap-2 text-blue-500"
+              >
+                <h1 className="underline sm:text-xl text-md font-bold text-left">
+                  Tarmac
+                </h1>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="size-4"
                 >
-                  <h1 className="underline sm:text-xl text-md font-bold text-left">
-                    Task Delegation Server
-                  </h1>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="size-4"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                    />
-                  </svg>
-                </a>
-                <p>
-                  A <span className="font-extrabold">C-based</span> task
-                  orchestration server that executes bash commands from multiple
-                  concurrent clients using named pipes and scheduling
-                  algorithms.
-                </p>
-              </FadeIn>
-            </div>
-            <div className="flex-1/2 flex flex-col gap-5">
-              <FadeIn delay={200}>
-                <a
-                  href="https://github.com/2101dudu/blockchain"
-                  target="_blank"
-                  className="w-78 flex items-center gap-2 text-blue-500"
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                  />
+                </svg>
+              </a>
+              <p>
+                A WIP <span className="font-extrabold">Go-based</span> backend{" "}
+                server that delegates and processes REST API requests to multiple{" "}
+                travel providers&apos; SOAP API servers.
+              </p>
+            </FadeIn>
+            <FadeIn delay={300}>
+              <a
+                href="https://github.com/2101dudu/Network-Monitoring-System-CC"
+                target="_blank"
+                className="w-85 flex items-center gap-2 text-blue-500"
+              >
+                <h1 className="underline sm:text-xl text-md font-bold text-left">
+                  Network Monitoring System
+                </h1>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="size-4"
                 >
-                  <h1 className="underline sm:text-xl text-md font-bold text-left">
-                    Proof-of-Work Blockchain
-                  </h1>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="size-4"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                    />
-                  </svg>
-                </a>
-                <p>
-                  A lightweight, modular, high-performance blockchain in{" "}
-                  <span className="font-extrabold">Go</span> featuring PoW
-                  consensus, UTXO management, Merkle trees, ECDSA signing, P2P
-                  networking, and an efficient transaction validation pipeline.
-                </p>
-              </FadeIn>
-              <FadeIn delay={600}>
-                <a
-                  href="https://github.com/2101dudu/Distributed-Remote-Storage-SD"
-                  target="_blank"
-                  className="w-85 flex items-center gap-2 text-blue-500"
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                  />
+                </svg>
+              </a>
+              <p>
+                A Distributed Network Monitoring system written in{" "}
+                <span className="font-extrabold">Go</span> with custom UDP and
+                TCP protocols for collecting and alerting network metrics.
+              </p>
+            </FadeIn>
+            <FadeIn delay={400}>
+              <a
+                href="https://github.com/2101dudu/Task-Orchestrator-SO"
+                target="_blank"
+                className="w-75 flex items-center gap-2 text-blue-500"
+              >
+                <h1 className="underline sm:text-xl text-md font-bold text-left">
+                  Task Delegation Server
+                </h1>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="size-4"
                 >
-                  <h1 className="underline sm:text-xl text-md font-bold text-left">
-                    Distributed Remote Storage
-                  </h1>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    className="size-4"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                    />
-                  </svg>
-                </a>
-                <p>
-                  A distributed in-memory data store with a client-server
-                  architecture, leveraging TCP sockets and multi-threading for
-                  efficient, concurrent access in{" "}
-                  <span className="font-extrabold">Java</span>.
-                </p>
-              </FadeIn>
-            </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                  />
+                </svg>
+              </a>
+              <p>
+                A <span className="font-extrabold">C-based</span> task
+                orchestration server that executes bash commands from multiple
+                concurrent clients using named pipes and scheduling
+                algorithms.
+              </p>
+            </FadeIn>
+            <FadeIn delay={500}>
+              <a
+                href="https://github.com/2101dudu/blockchain"
+                target="_blank"
+                className="w-78 flex items-center gap-2 text-blue-500"
+              >
+                <h1 className="underline sm:text-xl text-md font-bold text-left">
+                  Proof-of-Work Blockchain
+                </h1>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="size-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                  />
+                </svg>
+              </a>
+              <p>
+                A lightweight, modular, high-performance blockchain in{" "}
+                <span className="font-extrabold">Go</span> featuring PoW
+                consensus, UTXO management, Merkle trees, ECDSA signing, P2P
+                networking, and an efficient transaction validation pipeline.
+              </p>
+            </FadeIn>
+            <FadeIn delay={600}>
+              <a
+                href="https://github.com/2101dudu/Distributed-Remote-Storage-SD"
+                target="_blank"
+                className="w-85 flex items-center gap-2 text-blue-500"
+              >
+                <h1 className="underline sm:text-xl text-md font-bold text-left">
+                  Distributed Remote Storage
+                </h1>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  className="size-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                  />
+                </svg>
+              </a>
+              <p>
+                A distributed in-memory data store with a client-server
+                architecture, leveraging TCP sockets and multi-threading for
+                efficient, concurrent access in{" "}
+                <span className="font-extrabold">Java</span>.
+              </p>
+            </FadeIn>
           </div>
         </div>
       </section>
