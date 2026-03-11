@@ -21,7 +21,7 @@ export default [
         return:  (
             <>
               <p>
-                intern @ Uphold (summer &apos;25) — worked on <span className="text-green-400">core banking infrastructure </span> 
+                intern @ Uphold — worked on <span className="text-green-400">core banking infrastructure </span> 
                 using <span className="text-yellow-400">Java</span>
               </p>
               <p>
